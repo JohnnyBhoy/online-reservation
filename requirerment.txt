@@ -1,0 +1,33 @@
+#To run this application in you local machine , Please run this following
+
+1. Check if you have Pythin installed in you machine
+2. Check if you have also PIP installed in your machine
+3. Install sqlalchemy
+4. Go to the Project directory
+5. Run python virtualenv flask
+6. Run "flask\Scripts\activate.bat"
+7. Run "flask shell"
+8. Run "from app import db"
+9. Run this "db.create_all()"
+10. Ctrl + Z to go back to Project directory.
+11. Run Python app.python
+12. Open the App in you browser with this port "127.0.0.1:5000"
+
+#Requirements needed
+
+Frontend:
+ReactJS and Javascript
+
+Styling:
+Tailwind CSS and minor CSS
+
+Backend:
+Python flask
+
+Database:
+SqlliteAcchemy
+
+Repo:
+Github
+
+Link:

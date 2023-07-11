@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+
+ <div class="flex flex-col m-2 content-center items-center justify-center mb-10">
+                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 shadow-lg">
+                    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                        <div class="overflow-hidden">
+                            <div class="bg-teal-900 text-white text-center uppercase items-center justify-center p-3 mb-5 ">Online Reservation Form</div>
+                            <form action="/update/{{reserve.id}}" method="POST">
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div>
+                                        <label for="reserveDate">Reserve date</label><br />
+                                        <input type="datetime-local" placeholder="Reservation Date" class="p-2 border-2 border-slate-500 rounded"/>
+                                    </div>
+                                    <div>
+                                        <label for="firstName">First Name</label><br />
+                                        <input type="text" value="{{reserve.first_name}}" id="first_name" name="first_name" class="p-2 border-2 border-slate-500 rounded" />
+                                    </div>
+                                    <div>
+                                        <label for="lastName">Last Name</label><br />
+                                        <input type="text" value="{{reserve.last_name}}" id="last_name" name="last_name"  placeholder="Last Name" class="p-2 border-2 border-slate-500 rounded" />
+                                    </div>
+                                    <div>
+                                        <label for="contact">Contact number</label><br />
+                                        <input type="number" value="{{reserve.contact_number}}" id="contact_number" name="contact_number"  placeholder="Phone Number" class="p-2 border-2 border-slate-500 rounded" />
+                                    </div>
+                                    <div>
+                                        <label for="guest">No. of guests</label><br />
+                                        <input type="number" value="{{reserve.number_of_guest}}" id="number_of_guest" name="number_of_guest"  placeholder="No. of guests" class="p-2 border-2 border-slate-500 rounded" />
+                                    </div>
+                                    <div>
+                                        <label for="address">Address</label><br />
+                                        <input type="text" value="{{reserve.address}}" id="address" name="address"  placeholder="Address" class="p-2 border-2 border-slate-500 rounded" />
+                                    </div>
+                                </div>
+                                <div class="text-center mt-10">
+                                    <input type="submit" value="Update Reservation" id="updateContent" class="shadow-lg bg-blue-400 text-white p-2 rounded" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

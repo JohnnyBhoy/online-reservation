@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+
+<div id="mydiv"></div>
+
+<div class="flex flex-col m-1 content-center items-center justify-center">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 shadow-lg">
+        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+                <div class="text-lg text-slate-700 items-center justify-center content-center">
+                    <h1 class="flex items-center justify-center">RESERVATION LISTS</h1>
+                </div>
+                <table class="min-w-full text-left text-sm font-light">
+                    <thead class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600">
+                        <tr>
+                            <th scope="col" class="px-4 py-4">#</th>
+                            <th scope="col" class="px-4 py-4">Reservation Date</th>
+                            <th scope="col" class="px-4 py-4">Full Name</th>
+                            <th scope="col" class="px-4 py-4">Phone</th>
+                            <th scope="col" class="px-4 py-4">No. of Guests</th>
+                            <th scope="col" class="px-4 py-4">Address</th>
+                            <th scope="col" class="px-4 py-4">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reserve in reserves%}
+                        <tr class="items-center justify-center content-center">
+                            <td class="whitespace-nowrap px-4 py-4">{{ reserve.id }}</td>
+                            <td class="whitespace-nowrap px-4 py-4">{{ reserve.date_created }}</td>
+                            <td class="whitespace-nowrap px-4 py-4">{{ reserve.first_name }} {{ reserve.last_name }}</td>
+                            <td class="whitespace-nowrap px-4 py-4">{{ reserve.contact_number }}</td>
+                            <td class="whitespace-nowrap px-4 py-4">{{ reserve.number_of_guest }}</td>
+                            <td class="whitespace-nowrap px-4 py-4">{{ reserve.address }}</td>
+                            <td>
+                                <button type="button"
+                                    class="inline-block rounded bg-blue-400 px-6 pb-2 pt-2 text-md m-1 
+                                                        font-medium eading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition 
+                                                        duration-150 ease-in-out hover:bg-primary-600 
+                                                        hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
+                                    <a href="/update/{{reserve.id}}">Update</a>
+                                </button>
+                                <button type="button"
+                                    class="inline-block rounded bg-red-400 px-6 pb-2 pt-2 text-md m-1 
+                                                                    font-medium leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition 
+                                                                    duration-150 ease-in-out hover:bg-primary-600 
+                                                                    hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
+                                    <a href="/delete/{{reserve.id}}">Delete</a>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/babel">
+        const inputClass = `p-2 border-2 border-slate-500 w-full rounded`;
+        
+        function Hello() {
+            const [showForm, setShowForm] = React.useState(false);
+
+            
+            return (
+                <>
+                <Forms />
+                </>
+            );
+        }
+
+        const Forms = () => {
+            return (
+                <div class="flex flex-col m-2 content-center items-center justify-center mb-10">
+                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 shadow-lg">
+                        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                            <div class="overflow-hidden">
+                                <div class="bg-teal-900 text-white text-center uppercase items-center justify-center p-3 mb-5 ">
+                                    Online Reservation Form
+                                </div>
+                                <form action="/" method="POST">
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <FormInput
+                                            label="Reservation Date"
+                                            type="datetime-local"
+                                            name="reservation_date"
+                                            placeholder="Reservation date"
+                                        />
+                                        <FormInput
+                                            label="First Name"
+                                            type="text"
+                                            name="first_name"
+                                            placeholder="First name"
+                                        />
+                                        <FormInput
+                                            label="Last Name"
+                                            type="text"
+                                            name="last_name"
+                                            placeholder="Last name"
+                                        />
+                                        <FormInput
+                                            label="Contact Number"
+                                            type="number"
+                                            name="contact_number"
+                                            placeholder="Contact number"
+                                        />
+                                        <FormInput
+                                            label="Number of guest"
+                                            type="number"
+                                            name="number_of_guest"
+                                            placeholder="Number of guest"
+                                            min="1"
+                                            max="5"
+                                        />
+                                        <FormInput
+                                            label="Address"
+                                            type="text"
+                                            name="address"
+                                            placeholder="Address"
+                                        />
+                                    </div>
+                                    <div class="text-center mt-10">
+                                        <input type="submit" value="Add Reservation" id="contents" class="shadow-lg bg-blue-400 text-white p-2 rounded" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )       
+        };
+
+        const FormInput = ({label, type, name, placeholder, min, max}) => {
+            return (
+               <div>
+                    <label for="reserveDate">
+                        {label}
+                    </label><br />
+                    <input 
+                        type={type} 
+                        placeholder={placeholder} 
+                        name={name} 
+                        class={inputClass} 
+                        min={min} 
+                        max={max} 
+                        required autocomplete="off"
+                    />
+                </div> 
+            )
+        }
+
+        const container = document.getElementById('mydiv');
+        const root = ReactDOM.createRoot(container);
+        root.render(<Hello />)
+    </script>
+{% endblock %}

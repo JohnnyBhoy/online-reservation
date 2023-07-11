@@ -2,7 +2,7 @@
 
 1. Check if you have Pythin installed in you machine
 2. Check if you have also PIP installed in your machine
-3. Install sqlalchemy
+3. Install sqlalchemy => pip install sqlalchemy
 4. Go to the Project directory
 5. Run python virtualenv flask
 6. Run "flask\Scripts\activate.bat"
